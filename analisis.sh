@@ -1,0 +1,1 @@
+cat ficheros.txt | while read fichero; do [ $(echo "$fichero" | grep -o . | nl -s ":" -w 1 | grep [aeiou] | cut -d ":" -f1 | xargs -I {} calc -p "{} % 2 == 0" | grep -c 1) -gt 1 ] && echo "$fichero"; done
